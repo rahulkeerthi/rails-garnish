@@ -1,4 +1,7 @@
 <h1>New Cocktail</h1>
-<%= render "form", cocktail: @cocktail %>
 
-<p><%= link_to "Go back", root_path %></p>
+<div class="container">
+  <%= render "form", cocktail: @cocktail %>
+  <hr>
+  <p><%= link_to "Go back", root_path %></p>
+</div>
