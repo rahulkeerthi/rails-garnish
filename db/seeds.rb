@@ -25,4 +25,13 @@ glasses['drinks'].each do |glass|
   Glass.create!(name: glass['strGlass'])
 end
 
-User.create!(email: "test@test.com", password: "qwerty")
+User.create!(name: "Admin", email: "admin@garnish.com", password: "qwerty")
+admin = User.first
+
+url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list'
+cocktails = JSON.parse(open(url).read)
+cocktails['drinks'].each do |cocktail|
+  Cocktail.create!(name: cocktail['strDrink'], description: "", category: , glass: , user: admin)
+  
+  Dose.create!
+end
