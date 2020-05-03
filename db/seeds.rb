@@ -24,3 +24,5 @@ glasses = JSON.parse(open(url).read)
 glasses['drinks'].each do |glass|
   Glass.create!(name: glass['strGlass'])
 end
+
+User.create!(email: "test@test.com", password: "qwerty")
