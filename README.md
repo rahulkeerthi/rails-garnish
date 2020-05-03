@@ -1,24 +1,7 @@
-# README
+# Garnish
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Rails (v2.6.5) application built during Le Wagon London Batch 361 and refined in H1 2020.
 
-Things you may want to cover:
+It's an snazzy cocktail wiki, with recipes and ingredients. You can add your own as well.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Recipes, Images, Categories and Ingredients kindly provided by the [Cocktail DB](https://www.thecocktaildb.com)
