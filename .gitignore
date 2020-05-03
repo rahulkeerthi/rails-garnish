@@ -16,7 +16,7 @@
 # Ignore uploaded files in development.
 /storage/*
 !/storage/.keep
-
+/db/schema.rb
 /public/assets
 .byebug_history
 
