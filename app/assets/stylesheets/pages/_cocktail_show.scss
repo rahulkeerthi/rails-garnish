@@ -1,0 +1,26 @@
+
+.cocktail-display {
+  width: 50%;
+  background-image: radial-gradient(hsl(54, 97%, 52%) 1px, transparent 1px);
+  background-size: 10px 10px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: (50px + 2 * $spacer);
+  
+  img {
+    transform: translate(-50px, 50px);
+    width: 100%;
+  }
+}
+
+.cocktail-name {
+  width: 50%;
+  position: absolute;
+  text-shadow: 10px 10px 30px rgba(0,0,0, 0.5);
+  text-align: right;
+  z-index: 1;
+}
+
+.cocktail-buttons {
+
+}

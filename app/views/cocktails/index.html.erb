@@ -1,10 +1,16 @@
 <div class="container">
-  <h1>COCKTAILS LIST</h1>
-  <div class="card-grid">
-    <% @cocktails.each do |cocktail| %>
-    <div class="card-category">
-      <h1><%= link_to cocktail.name, cocktail_path(cocktail) %></h1>
+  <h1 class="text-center">COCKTAILS</h1>
+  <div id="card-grid">
+    <div id="feature1" class="card-category btn" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @cocktails.first.image_url %>)">
+        <%= link_to @cocktails.first.name, cocktail_path(@cocktails.first), class: "text-white" %>
     </div>
+    <div id="feature2" class="card-category btn" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @cocktails.last.image_url %>)">
+        <%= link_to @cocktails.last.name, cocktail_path(@cocktails.last), class: "text-white" %>
+    </div>
+    <% @cocktails[1..-2].each do |cocktail| %>
+      <div class="card-category btn unfeatured" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.image_url %>)">
+        <%= link_to cocktail.name, cocktail_path(cocktail), class: "text-white" %>
+      </div>
     <% end %>
   </div>
   <%= link_to "New Cocktail", new_cocktail_path, class: "btn btn-warning" %>

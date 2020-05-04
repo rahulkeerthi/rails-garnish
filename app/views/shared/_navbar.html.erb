@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-lewagon">
+<nav class="navbar navbar-expand-sm navbar-lewagon">
   <%= link_to "/", class: "navbar-brand" do %>
     <%= image_tag "GarnishLogo.png" %>
   <% end %>
@@ -30,9 +30,11 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <h4>
+            <%= link_to "Login", new_user_session_path, class: "nav-link text-white mr-5" %>
+          </h4>
         </li>
       <% end %>
     </ul>
   </div>
-</div>
+</nav>

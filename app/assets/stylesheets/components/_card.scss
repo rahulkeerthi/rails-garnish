@@ -1,22 +1,63 @@
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 24px;
+  // color: white;
+  text-align: center;
+  font-size: 2rem;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px $light-green;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: ease 0.3s;
+  a {
+    text-decoration: none;
+  }
+  &:hover {
+    transform: scale(1.02);
+    transition: ease 0.3s;
+  }
 }
 
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-flow: row;
-  row-gap: 10px;
-  column-gap: 10px;
+#card-grid {
+  display: block;
+  .unfeatured, #feature1, #feature2 {
+      height: 180px;
+      margin: (0.5 * $spacer) 0 (0.5 * $spacer) 0;
+  }
+}
+
+@media (min-width: 400px) {
+  #card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 0.5 * $spacer;
+    column-gap: 0.5 * $spacer;
+    grid-template-rows: 180px;
+
+    #feature2 {
+      height: auto;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  #card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 180px;
+    row-gap: $spacer;
+    column-gap: $spacer;
+
+    #feature1 {
+      grid-area: 1 / 3 / 2 / 5;
+    }
+    
+    #feature2 {
+      grid-area: 3 / 1 / 5 / 3 ;
+    }
+  }
+  
 }
