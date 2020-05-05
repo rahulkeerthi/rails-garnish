@@ -1,5 +1,9 @@
-<%= simple_form_for(@cocktail) do |f| %>
-<%= f.input :name %>
-<%= f.input :description %>
-<%= f.submit %>
-<% end %>
+<div class="cocktail-form">
+  <%= simple_form_for(@cocktail) do |f| %>
+    <%= f.input :name, placeholder: "Give it a name!" %>
+    <%= f.input :description, placeholder: "Make it sound delicious!" %>
+    <%= f.association :category, prompt: "What kind of drink is it?" %>
+    <%= f.association :glass, prompt: "And how do we hold it?" %>
+    <%= f.submit %>
+  <% end %>
+</div>

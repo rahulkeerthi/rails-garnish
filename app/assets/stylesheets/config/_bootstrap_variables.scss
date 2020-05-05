@@ -6,7 +6,7 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $light-green;
+$body-bg:                 transparent;
 $font-size-base: 1rem;
 $spacer: 8px;
 
@@ -28,4 +28,17 @@ html {
   background-color: rgba(0, 100, 100, 0.5);
   background-image: linear-gradient(45deg, rgba(100, 255, 200, 0.5) 50%, transparent 50%);
   background-size: 35px 35px;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.main-container {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 100px;
 }

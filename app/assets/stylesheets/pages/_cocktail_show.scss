@@ -1,26 +1,134 @@
-
 .cocktail-display {
-  width: 50%;
-  background-image: radial-gradient(hsl(54, 97%, 52%) 1px, transparent 1px);
+  width: 80%;
+  background-image: radial-gradient(hsl(54, 97%, 52%) 2px, transparent 2px);
   background-size: 10px 10px;
   margin-right: auto;
-  margin-left: auto;
-  margin-bottom: (50px + 2 * $spacer);
+  margin-left: 82px;
+  margin-bottom: (20px + 2 * $spacer);
+  margin-top: (20px + 2 * $spacer);
   
   img {
-    transform: translate(-50px, 50px);
+    transform: translate(-30px, 30px);
     width: 100%;
+    border-radius: 10px;
   }
 }
 
-.cocktail-name {
-  width: 50%;
+.cocktail-title {
+  color: black;
+  width: 80%;
+  font-size: 3rem;
   position: absolute;
-  text-shadow: 10px 10px 30px rgba(0,0,0, 0.5);
+  top: 15%;
+  right: 10%;
+  text-shadow: 3px 2px 0px rgba(255,255,255, 1);
   text-align: right;
   z-index: 1;
 }
 
-.cocktail-buttons {
+.cocktail-display-right {
+  margin: 5 * $spacer 0;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  .cocktail-description {
+    font-size: 1.5rem;
+    text-align: justify;
+    font-weight: bold;
+  }
+  .dose-list {
+    padding: $spacer 0;
+    
+    li {
+      font-size: 1.5rem;
+      padding: $spacer 5 * $spacer;
+    }
+  }
+  .cocktail-tags { 
+    margin-top: 2 * $spacer;
+    span {
+      border: 2px solid white;
+      padding: 4px 8px;
+      margin: $spacer $spacer $spacer 0;
+      border-radius: 2px;
+      background-color: whitesmoke;
+      font-size: 1rem;
+    }
+  }
+}
+
+.show-responsive {
+  display: block;
+}
+
+
+@media (min-width: 576px) {
+  .cocktail-title {
+    width: 60vw;
+    font-size: 4rem;
+    left: 30vw;
+  }
+}
+
+@media (min-width: 992px) {
+  .cocktail-display {
+    width: 50%;
+    margin-bottom: (50px + 2 * $spacer);
+    img {
+      transform: translate(-50px, 50px);
+      width: 100%;
+    }
+    .cocktail-title {
+      font-size: 5rem;
+      width: 40%;
+      position: absolute;
+      left: 16vw;
+    }
+  }
+
+  .cocktail-display-right {
+    margin: $spacer 0;
+    align-self: center;
+    padding-left: 50px;
+    width: 42%;  
+    .dose-list {
+      font-size: 2rem;
+    }
+    .cocktail-description {
+      font-size: 2rem;
+      line-height: 1.1;
+    }
+    .cocktail-tags span {
+      border: 2px solid white;
+      padding: 4px 8px;
+      margin: $spacer $spacer $spacer 0;
+      border-radius: 2px;
+      background-color: whitesmoke;
+      font-size: 1rem;
+    }
+  }
+
+  .show-responsive {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cocktail-form {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
 }
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .cocktail-display-right .cocktail-description {
+    font-size: 1.5rem;
+  }
+}
+
+// @media (min-width: 1200px) {
+//   .cocktail-description {
+//     font-size: 2rem;
+//   }
+// }

@@ -1,0 +1,32 @@
+.cocktail-form {
+  margin-top: 2 * $spacer;
+  background-color: white;
+  border-radius: 10px;
+  padding: 2 * $spacer;
+}
+
+.cocktail-form form {
+  margin-top: 2 * $spacer;
+  font-size: 1.25rem;
+  div {
+
+  }
+  label {
+    font-weight: bold;
+  }
+
+  input:focus {
+    border: 3px inset $orange;
+  }
+
+  select:focus {
+    border: 3px inset $orange;
+  }
+
+  input[type=submit] {
+    background-color: $orange;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+}

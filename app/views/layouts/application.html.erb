@@ -10,10 +10,14 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload', defer: true %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
   <%= render 'shared/flashes' %>
-  <%= render 'shared/navbar' %>
-  <body>
-    <%= yield %>
+  <body>    
+    <div class="main-container">
+      <%= render 'shared/navbar' %>
+      <%= yield %>
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>
 <p class="notice"><%= notice %></p>

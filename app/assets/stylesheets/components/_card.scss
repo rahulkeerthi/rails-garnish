@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // color: white;
+  color: white;
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
@@ -25,7 +25,7 @@
   display: block;
   .unfeatured, #feature1, #feature2 {
       height: 180px;
-      margin: (0.5 * $spacer) 0 (0.5 * $spacer) 0;
+      // margin: (0.5 * $spacer) 0 (0.5 * $spacer) 0;
   }
 }
 

@@ -1,28 +1,47 @@
 <div class="container">
-  <%= link_to "Go back", root_path %>
-
-  <div class="cocktail-display">
-    <h1 class="cocktail-name display-1"><%= @cocktail.name %></h1>
-    <%= image_tag @cocktail.image_url %>
-  </div>
-  <div class="cocktail-buttons">
-    <span><%= link_to "Delete", cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" }, class: "btn" %> | <%= link_to "Edit", edit_cocktail_path(@cocktail), class: "btn" %></span>
-  </div>
-  <div>
-    <p><%= @cocktail.description %> </p>
-    <ul class="list-group">
-      <% @cocktail.doses.each do |dose| %>
-      <li class="list-group-item d-flex justify-content-between"><span><%= dose.description %> <%= dose.ingredient.name %></span><span><%= link_to "x", dose_path(dose), method: :delete, class: "btn btn-danger" %></span></li>
+  <div class="show-responsive">
+    <div class="cocktail-display">
+      <h1 class="cocktail-title"><%= @cocktail.name %></h1>
+      <%= image_tag @cocktail.image_url %>
+    </div>
+    <div class="cocktail-display-right">
+      <div class="cocktail-description">
+        <%= @cocktail.description %>
+        <div class="cocktail-tags d-flex">
+          <span><%= @cocktail.category.name %></span>
+          <span><%= @cocktail.glass.name %></span>
+        </div>
+      </div>
+      <h3 class="mt-5">Ingredients:</h3>
+      <ul class="list-group dose-list">
+        <% @cocktail.doses.each do |dose| %>
+          <li class="list-group-item d-flex justify-content-between">
+            <span><%= dose.description %> <%= dose.ingredient.name %></span>
+            <% if current_user == @cocktail.user %>  
+              <%= link_to dose_path(dose), method: :delete do %>
+                <i class="fa fa-trash btn btn-danger" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <% if current_user == @cocktail.user %>
+        <div class="text-center mt-2">
+          <%= link_to "Delete Cocktail", cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          <span class=""> / </span>
+          <%= link_to "Edit Cocktail", edit_cocktail_path(@cocktail), class: "btn btn-warning" %>
+        </div>
       <% end %>
-    </ul>
-  <hr>
-  <div class="">
-    Add an ingredient:
-    <%= simple_form_for [@cocktail, @dose] do |f| %>
-      <%= f.input :description %>
-      <%= f.association :ingredient, collection: @ingredients.order(:name) %>
-      <%= f.submit %>
-    <% end %>
+    </div>
   </div>
-
+  <% if current_user == @cocktail.user %>
+    <div class="cocktail-form">
+      <h4>Missing something? Add an ingredient:</h4>
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.association :ingredient, collection: @ingredients.order(:name) %>
+        <%= f.input :description, label: "How much?", required: true %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

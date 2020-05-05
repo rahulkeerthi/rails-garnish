@@ -1,0 +1,45 @@
+.go-back-button {
+  text-decoration: none;
+  color: $orange;
+	text-align: center;
+  font-size: 2rem;
+  margin-left: 20px;
+  
+  &:hover {
+    border-color: rgba(255,255,255,1);
+  }
+}
+
+.new-cocktail {
+  text-decoration: none;
+  color: $black;
+  background-color: $orange;
+  padding: 3px 2 * $spacer;
+  text-align: center;
+  font-size: 2rem;
+  margin-left: 20px;
+  
+  &:hover {
+    border-color: rgba(255,255,255,1);
+    color: $black;
+  }
+}
+
+@media (min-width: 768px) {
+  .new-cocktail {
+    text-decoration: none;
+    color: grey;
+    background-color: $orange;
+    padding: 3px 2 * $spacer;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+    
+    &:hover {
+      border-color: rgba(255,255,255,1);
+      color: $black;
+    }
+  }
+}
