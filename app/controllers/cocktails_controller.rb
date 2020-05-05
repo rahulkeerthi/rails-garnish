@@ -1,5 +1,4 @@
 class CocktailsController < ApplicationController
-  # skip_before_action :authenticate_user!, only: :index, :show
   before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
   before_action :set_ingredients
 
@@ -17,8 +16,12 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
-    @cocktail.user = current_user
-    if @cocktail.save
+    if user_signed_in?
+      @cocktail.user = current_user
+    else
+      @cocktail.user = User.first
+    end
+      if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
       render :new
