@@ -44,7 +44,6 @@ class CocktailsController < ApplicationController
   end
 
   def destroy
-    debugger
     if @cocktail.destroy!
       redirect_to cocktails_path, notice: 'Your cocktail has been deleted'
     end
