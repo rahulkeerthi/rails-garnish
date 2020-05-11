@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class CocktailsController < ApplicationController
-  before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
+  before_action :set_cocktail, only: %i[show edit update destroy]
   before_action :set_ingredients
 
   def index
-    @cocktails = Cocktail.all.sort_by { |c| c.id }
+    @cocktails = Cocktail.all.sort_by(&:id)
   end
 
   def show
@@ -16,12 +18,15 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
-    if user_signed_in?
-      @cocktail.user = current_user
-    else
-      @cocktail.user = User.first
+    @cocktail.user = if user_signed_in?
+                       current_user
+                     else
+                       User.first
+                     end
+    if @cocktail.image_url.nil?
+      @cocktail.image_url = 'https://source.unsplash.com/1024x768/?cocktail'
     end
-      if @cocktail.save
+    if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
       render :new
@@ -39,8 +44,10 @@ class CocktailsController < ApplicationController
   end
 
   def destroy
-    @cocktail.destroy
-    redirect_to root_path
+    debugger
+    if @cocktail.destroy!
+      redirect_to cocktails_path, notice: 'Your cocktail has been deleted'
+    end
   end
 
   private
@@ -54,6 +61,6 @@ class CocktailsController < ApplicationController
   end
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :description, :glass, :category)
+    params.require(:cocktail).permit(:name, :description, :glass_id, :category_id)
   end
 end

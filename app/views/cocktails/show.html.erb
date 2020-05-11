@@ -2,7 +2,7 @@
   <div class="show-responsive">
     <div class="cocktail-display">
       <h1 class="cocktail-title"><%= @cocktail.name %></h1>
-      <%= image_tag @cocktail.image_url %>
+      <%= @cocktail.image_url ? image_tag(@cocktail.image_url) : image_tag('https://source.unsplash.com/1024x768/?cocktail') %>
     </div>
     <div class="cocktail-display-right">
       <div class="cocktail-description">

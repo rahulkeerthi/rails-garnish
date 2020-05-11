@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :doses, only: [:new, :create]
   end
 
+  resources :cocktails, only: :index
   resources :doses, only: :destroy
 
 end
